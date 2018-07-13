@@ -1,0 +1,4 @@
+/* normalize.css is the style of index.html */
+body {background-color: #eee}
+p {margin-left: 20px}
+table, form, select {margin-left: 300px}

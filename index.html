@@ -1,4 +1,28 @@
 <html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/base.css">
+  <script type="text/javascript">
+  var log_head = {status: "状态", time:	"访问时间", name:	"姓名", username:	"用户名",
+                  manager:	"管理员", chrome:	"浏览器", place:	"地域", logIP:	"IP",
+                  application:	"访问应用", risklevel:	"风险等级", mark:	"标记", eventdescription:	"事件描述"};
+  var log_content = {status: "未处理", time:	"07.11 11:15:37", name:	"方乐驹", username:	"_@hotmail.com",
+                  manager:	"否", chrome:	"Chrome", place:	"北京", logIP:	"106.38.43.209",
+                  application:	"The Bacon", risklevel:	"高危", mark:	"系统", eventdescription:	"多个设备登录异常"};
+  // 想优化程序，建了这个array减少重复工作
+  // var array = ["status", "time", "name", "username", "manager", "chrome", "logIP", "application", "risklevel", "mark", "eventdescription"];
+  function getInnerHTML()
+    {
+        document.getElementById("log_head").innerHTML = `<th>${log_head.status}</th><th>${log_head.time}</th><th>${log_head.name}</th>
+        <th>${log_head.username}</th><th>${log_head.manager}</th><th>${log_head.chrome}</th><th>${log_head.place}</th><th>${log_head.logIp}</th>
+        <th>${log_head.application}</th><th>${log_head.risklevel}</th><th>${log_head.mark}</th><th>${log_head.eventdescription}</th>`;
+
+        document.getElementById("log_content").innerHTML = `<td>${log_content.status}</td><td>${log_content.time}</td><td>${log_content.name}</td>
+        <td>${log_content.username}</td><td>${log_content.manager}</td><td>${log_content.chrome}</td><td>${log_content.place}</td><td>${log_content.logIp}</td>
+        <td>${log_content.application}</td><td>${log_content.risklevel}</td><td>${log_content.mark}</td><td>${log_content.eventdescription}</td>`;
+    }
+  </script>
+</head>
 <body>
 
 <nav>
@@ -12,35 +36,16 @@
 </select>
 
 <table border="1">
-  <tr>
-    <th>Month</th>
-    <th>Savings</th>
+  <tr id="log_head">
   </tr>
-  <tr>
-    <td>January</td>
-    <td>$100</td>
-  </tr>
-  <tr>
-    <td>February</td>
-    <td>$200</td>
-  </tr>
-  <tr>
-    <td>Match</td>
-    <td>$300</td>
-  </tr>
-  <tr>
-    <td>April</td>
-    <td>$400</td>
-  </tr>
-  <tr>
-    <td>May</td>
-    <td>$500</td>
-  </tr>
-  <tr>
-    <td>June</td>
-    <td>$600</td>
+  <tr id="log_content">
   </tr>
 </table>
+
+<script>
+  document.getElementById("log_head").innerHTML = `<th>${log_head.mark}</th>`;
+  // getInnerHTML()
+</script>
 
 <form action="/utils/displayname.html">
 First name:<br>
@@ -51,6 +56,16 @@ Last name:<br>
 <br><br>
 <input type="submit" value="Submit">
 </form>
+
+<form>
+<label for="male">Male</label>
+<input type="radio" name="sex" id="male" />
+<br />
+<label for="female">Female</label>
+<input type="radio" name="sex" id="female" />
+</form>
+
+<input type="button" onclick="getInnerHTML()" value="Change month to year" />
 
 </body>
 </html>
